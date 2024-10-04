@@ -2,6 +2,6 @@
 #include "figures.h"
 
 void display() {
-  char **blackRook = reverse(reverse(rook));
+  char **blackRook = flipV(rook);
   interpreter(blackRook);
 }
