@@ -4,7 +4,6 @@
 void display() {
   char **white_square = whiteSquare;
   char **black_square = reverse(whiteSquare);
-  char **white_queen = queen;
-  
-  interpreter(repeatH(white_square, 100));
+  char **black_queen = reverse(queen);
+  interpreter(repeatH(join(white_square, black_queen), 2));
 }
