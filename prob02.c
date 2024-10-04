@@ -4,8 +4,6 @@
 void display() {
   char **white_Square = whiteSquare;
   char **black_Square = reverse(whiteSquare);
-  char **chessFila = repeatH(join(black_Square, whiteSquare), 2);
-  char **tmp = rotateL(rotateL((flipV(chessFila))));
-  char **tmp2 = join(chessFila, tmp);
-  interpreter(tmp2);
+  char **chessFila = repeatH(join(white_Square, black_Square), 4);
+  interpreter(reverse(chessFila));
 }
