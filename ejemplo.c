@@ -2,9 +2,8 @@
 #include "figures.h"
 
 void display() {
-  char **blackRook = flipV(reverse(rook));
+  char **blackKnight = flipV(reverse(knight));
   char **whiteKnight = knight;
-  char **Rook_Knight = join(blackRook, whiteKnight); 
+  char **Rook_Knight = join(blackKnight, whiteKnight); 
   interpreter(Rook_Knight);
-  interpreter(whiteKnight);
 }
