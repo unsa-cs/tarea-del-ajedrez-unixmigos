@@ -10,9 +10,10 @@ void display() {
   char **white_bishop = bishop;
   char **white_king = king;
   char **white_queen = queen;
-  char **row_pieces_left = join(join(join(white_rook, white_knight), white_bishop), white_queen);
-  char **row_pieces_right = join(join(join(white_king, white_bishop), white_knight), white_rook);
-  char **row_pieces = join(row_pieces_left, row_pieces_right); 
+  char **row_pieces_left = join(join(white_rook, white_knight), white_bishop);
+  char **row_pieces_center = join(white_queen, white_king);
+  char **row_pieces_right = flipH(rotateL(rotateL(row_pieces_left)));
+  char **row_pieces = join(join(row_pieces_left, row_pieces_center), row_pieces_right); 
   char **impose_row_pieces = superImpose(row_pieces, row_first);
 
   interpreter(impose_row_pieces);
