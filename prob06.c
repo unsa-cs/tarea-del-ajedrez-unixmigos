@@ -36,8 +36,9 @@ void display() {
       table_chess = up(table_chess, even_row);
     else if (fila == 7)
       table_chess = up(table_chess, reverse(row_second));
+    else
+      table_chess = up(table_chess, reverse(row_first));
   }
-      
-
+  
   interpreter(table_chess);
 }
