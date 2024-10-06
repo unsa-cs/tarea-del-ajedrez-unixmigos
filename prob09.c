@@ -32,15 +32,21 @@ void display() {
     {0, 0, 0, 0, 0, 0, 1, 0},
     {0, 0, 0, 0, 0, 0, 6, 0}
   };
+  
+  char **pieces[] = {pawn, rook, knight, bishop, queen, king, reverse(pawn), reverse(rook), reverse(knight), reverse(bishop), reverse(queen), reverse(king)};
+
   for (int i = 1; i <= 8; i++) {
-    char **tem_row;
+    char **tem_row = pawn;
     for (int j = 1; j <= 8; j++) {
-      
+      if ((i + j) % 2 == 0 && matriz[i - 1][j - 1] == 0) {
+      }
+      else {
+      }
     }
     if (i == 1)
       table_chess = tem_row;
     else
       table_chess = up(table_chess, tem_row);
   }
-  interpreter(table_chess);
+  interpreter(pieces[7]);
 }
