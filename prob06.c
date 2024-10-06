@@ -25,6 +25,12 @@ void display() {
   char **row_second = reverse(row_first);
   char **impose_pawns = superImpose(white_row_pawns, row_second);
   char **impose_pieces = superImpose(pieces, row_first);
- 
-  interpreter(up(impose_pieces, impose_pawns));
+  char **table_chess = impose_pieces;
+
+  for (int i = 1; i < 8; i++) {
+    if (i == 1)
+      table_chess = up(table_chess, impose_pawns);
+  }
+
+  interpreter(table_chess);
 }
