@@ -3,9 +3,8 @@
 #include <threads.h>
 
 void display() {
-  char **white_Square = whiteSquare;
-  char **black_Square = reverse(whiteSquare);
-  char **row_first = repeatH(join(black_Square, white_Square), 4);
+  char **odd_row = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
+  char **even_row= reverse(odd_row);
   char **pieces = rook;
 
   for (int i = 1; i < 8; i++) {
@@ -22,14 +21,13 @@ void display() {
   }
   
   char **white_row_pawns = repeatH(pawn, 8);
-  char **row_second = reverse(row_first);
-  char **impose_pawns = superImpose(white_row_pawns, row_second);
-  char **impose_pieces = superImpose(pieces, row_first);
-  char **table_chess = impose_pieces;
+  char **row_first = superImpose(pieces, odd_row);
+  char **row_second = superImpose(white_row_pawns, even_row);
+  char **table_chess = row_first;
 
   for (int i = 1; i < 8; i++) {
     if (i == 1)
-      table_chess = up(table_chess, impose_pawns);
+      table_chess = up(table_chess, row_second);
   }
 
   interpreter(table_chess);
