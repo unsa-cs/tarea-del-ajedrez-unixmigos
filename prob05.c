@@ -15,6 +15,10 @@ void display() {
       pieces = join(pieces, reverse(knight));
     else if (i == 2 || i == 5)
       pieces = join(pieces, reverse(bishop));
+    else if (i == 3)
+      pieces = join(pieces, reverse(queen));
+    else
+      pieces = join(pieces, reverse(king));
   }
   interpreter(superImpose(pieces, Row_First));
 }
