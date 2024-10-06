@@ -11,6 +11,10 @@ void display() {
         table_chess = black_square;
         table_chess = superImpose(knight, table_chess);
       }
+      if (row == 1 && col == 2) {
+        char **temp = superImpose(rotateR(knight), table_chess);
+        table_chess = join(table_chess, temp);
+      }
     }
   }
   
