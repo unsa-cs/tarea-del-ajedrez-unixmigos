@@ -22,7 +22,7 @@ void display() {
     else
       tem_row = black_square;
     for (int j = 1; j <= 7; j++) {
-      if (i + j % 2 == 0)
+      if ((i + j) % 2 != 0)
         tem_row = join(tem_row, black_square);
       else
         tem_row = join(tem_row, whiteSquare);
