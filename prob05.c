@@ -8,7 +8,7 @@ void display() {
   char **Row_First = repeatH(join(black_Square, white_Square), 4);
   char **pieces = reverse(rook);
 
-  for (int i = 0; i < 8; i++) {
+  for (int i = 1; i < 8; i++) {
     if (i == 7)
       pieces = join(pieces, reverse(rook));
   }
