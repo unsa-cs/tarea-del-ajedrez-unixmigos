@@ -17,15 +17,19 @@ void display() {
 
   for (int i = 1; i <= 8; i++) {
     char **tem_row;
-    if (i % 2 == 0)
-      tem_row = whiteSquare;
-    else
-      tem_row = black_square;
-    for (int j = 1; j <= 7; j++) {
-      if ((i + j) % 2 != 0)
-        tem_row = join(tem_row, black_square);
-      else
-        tem_row = join(tem_row, whiteSquare);
+    for (int j = 1; j <= 8; j++) {
+      if (j == 1) {
+        if (i % 2 == 0)
+          tem_row = whiteSquare;
+        else
+          tem_row = black_square;
+      }
+      else {
+        if ((i + j) % 2 == 0)
+          tem_row = join(tem_row, black_square);
+        else
+          tem_row = join(tem_row, whiteSquare);
+      }
     }
     if (i == 1)
       table_chess = tem_row;
