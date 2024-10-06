@@ -20,15 +20,27 @@ void display() {
     for (int j = 1; j <= 8; j++) {
       if (j == 1) {
         if (i % 2 == 0)
-          tem_row = whiteSquare;
+          if (matriz[i - 1][j - 1] == 1)
+            tem_row = superImpose(queen, whiteSquare);
+          else
+            tem_row = whiteSquare;
         else
-          tem_row = black_square;
+          if (matriz[i - 1][j - 1] == 1)
+            tem_row = superImpose(queen, black_square);
+          else 
+            tem_row = black_square;
       }
       else {
         if ((i + j) % 2 == 0)
-          tem_row = join(tem_row, black_square);
+          if (matriz[i - 1][j - 1] == 1)
+            tem_row = join(tem_row,superImpose(queen, black_square));
+          else
+            tem_row = join(tem_row, black_square);
         else
-          tem_row = join(tem_row, whiteSquare);
+          if (matriz[i - 1][j - 1] == 1)
+            tem_row = join(tem_row, superImpose(queen, whiteSquare));
+          else
+            tem_row = join(tem_row, whiteSquare);
       }
     }
     if (i == 1)
