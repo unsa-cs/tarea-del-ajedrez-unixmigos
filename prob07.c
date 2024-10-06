@@ -25,8 +25,13 @@ void display() {
         first_row = join(first_row, temp);
       }
       if (row == 2 && col == 1) {
-        second_row = square;
+        second_row = reverse(square);
         second_row = superImpose(rotateR(rotateR(knight)), second_row);
+      }
+      if (row == 2 && col == 2) {
+        char **rotate = rotateR(rotateR(rotateR(knight)));
+        char **temp = superImpose(rotate, reverse(square));
+        second_row = join(second_row, temp);
       }
     }
   }
