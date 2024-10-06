@@ -13,6 +13,8 @@ void display() {
       pieces = join(pieces, reverse(rook));
     else if (i == 1 || i == 6)
       pieces = join(pieces, reverse(knight));
+    else if (i == 2 || i == 5)
+      pieces = join(pieces, reverse(bishop));
   }
   interpreter(superImpose(pieces, Row_First));
 }
