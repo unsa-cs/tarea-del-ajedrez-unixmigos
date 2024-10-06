@@ -32,6 +32,15 @@ void display() {
     {0, 0, 0, 0, 0, 0, 1, 0},
     {0, 0, 0, 0, 0, 0, 6, 0}
   };
-
+  for (int i = 1; i <= 8; i++) {
+    char **tem_row;
+    for (int j = 1; j <= 8; j++) {
+      
+    }
+    if (i == 1)
+      table_chess = tem_row;
+    else
+      table_chess = up(table_chess, tem_row);
+  }
   interpreter(table_chess);
 }
