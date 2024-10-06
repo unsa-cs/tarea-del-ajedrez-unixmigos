@@ -33,7 +33,20 @@ void display() {
     {0, 0, 0, 0, 0, 0, 6, 0}
   };
   
-  char **pieces[] = {pawn, rook, knight, bishop, queen, king, reverse(pawn), reverse(rook), reverse(knight), reverse(bishop), reverse(queen), reverse(king)};
+  char **pieces[] = {
+    pawn,
+    rook,
+    knight, 
+    bishop, 
+    queen, 
+    king, 
+    reverse(pawn), 
+    reverse(rook), 
+    reverse(knight), 
+    reverse(bishop), 
+    reverse(queen), 
+    reverse(king)
+  };
 
   for (int i = 1; i <= 8; i++) {
     char **tem_row;
@@ -42,21 +55,29 @@ void display() {
         tem_row = black_square;
         continue;
       }
-      else if (j == 1 && matriz[i - 1][j - 1] == 0 )
+      else if (j == 1 && matriz[i - 1][j - 1] == 0)
         tem_row = whiteSquare;
-      else {
-        if (i % 2 != 0){
+      else if (j == 1) {
+        if (i % 2 != 0) {
           tem_row = black_square;
           tem_row = superImpose(pieces[matriz[i - 1][j - 1] - 1], tem_row);
         } 
-        else{
+        else {
           tem_row = whiteSquare;
           tem_row = superImpose(pieces[matriz[i - 1][j - 1] - 1], tem_row);
         }
       }
-      if ((i + j) % 2 == 0 && matriz[i - 1][j - 1] == 0) {
+      if ((i + j) % 2 == 0 && matriz[i - 1][j - 1] == 0)
+        tem_row = join(black_square, tem_row); 
+      else if ((i + j) % 2 == 0 && matriz[i - 1][j - 1] != 0) { 
+        char **temp2 = superImpose(pieces[matriz[i - 1][j - 1] - 1], black_square);
+        tem_row = join(tem_row, temp2);
       }
-      else {
+      else if ((i + j) % 2 != 0 && matriz[i - 1][j - 1] != 0)
+        tem_row = join(whiteSquare, tem_row);
+      else if ((i + j) % 2 == 0 && matriz[i - 1][j - 1] != 0) { 
+        char **temp2 = superImpose(pieces[matriz[i - 1][j - 1] - 1], whiteSquare);
+        tem_row = join(tem_row, temp2);
       }
     }
     if (i == 1)
