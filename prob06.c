@@ -30,6 +30,10 @@ void display() {
       table_chess = row_first;
     else if (fila == 2)
       table_chess = up(table_chess, row_second);
+    else if (fila == 3 || fila == 5)
+      table_chess = up(table_chess, odd_row);
+    else if (fila == 4 || fila == 6)
+      table_chess = up(table_chess, even_row);
   }
 
   interpreter(table_chess);
