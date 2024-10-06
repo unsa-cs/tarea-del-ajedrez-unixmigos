@@ -23,10 +23,12 @@ void display() {
   char **white_row_pawns = repeatH(pawn, 8);
   char **row_first = superImpose(pieces, odd_row);
   char **row_second = superImpose(white_row_pawns, even_row);
-  char **table_chess = row_first;
+  char **table_chess;
 
-  for (int i = 1; i < 8; i++) {
-    if (i == 1)
+  for (int fila = 1; fila <= 8; fila++) {
+    if (fila == 1)
+      table_chess = row_first;
+    else if (fila == 2)
       table_chess = up(table_chess, row_second);
   }
 
