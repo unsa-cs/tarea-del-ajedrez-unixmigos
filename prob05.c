@@ -11,6 +11,8 @@ void display() {
   for (int i = 1; i < 8; i++) {
     if (i == 7)
       pieces = join(pieces, reverse(rook));
+    else if (i == 1 || i == 6)
+      pieces = join(pieces, reverse(knight));
   }
   interpreter(superImpose(pieces, Row_First));
 }
