@@ -5,7 +5,7 @@
 void display() {
   char **white_Square = whiteSquare;
   char **black_Square = reverse(whiteSquare);
-  char **Row_First = repeatH(join(black_Square, white_Square), 4);
+  char **row_first = repeatH(join(black_Square, white_Square), 4);
   char **pieces = rook;
 
   for (int i = 1; i < 8; i++) {
@@ -21,6 +21,9 @@ void display() {
       pieces = join(pieces, king);
   }
   
-  char **white_row_pawn = repeatH(pawn, 8);
-  interpreter(white_row_pawn);
+  char **white_row_pawns = repeatH(pawn, 8);
+  char **row_second = reverse(row_first);
+  char **impose_pawns = superImpose(white_row_pawns, row_second);
+  
+  interpreter(impose_pawns);
 }
