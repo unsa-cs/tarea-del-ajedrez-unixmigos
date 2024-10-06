@@ -24,6 +24,7 @@ void display() {
   char **white_row_pawns = repeatH(pawn, 8);
   char **row_second = reverse(row_first);
   char **impose_pawns = superImpose(white_row_pawns, row_second);
-  
-  interpreter(impose_pawns);
+  char **impose_pieces = superImpose(pieces, row_first);
+ 
+  interpreter(up(impose_pieces, impose_pawns));
 }
