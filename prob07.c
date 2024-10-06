@@ -7,16 +7,22 @@ void display() {
   char **table_chess;
   for (int row = 1; row <= 2; row++) {
     for (int col = 1; col <= 2; col++) {
+      char **square;
+      if (col % 2 == 0)
+        square = white_square;
+      else
+        square = black_square;
+
       if (row == 1 && col == 1) {
-        table_chess = black_square;
+        table_chess = square;
         table_chess = superImpose(knight, table_chess);
       }
       if (row == 1 && col == 2) {
-        char **temp = superImpose(rotateR(knight), white_square);
+        char **temp = superImpose(rotateR(knight), square);
         table_chess = join(table_chess, temp);
       }
     }
   }
-  
+
   interpreter(table_chess);
 }
